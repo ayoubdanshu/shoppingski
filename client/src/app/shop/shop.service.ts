@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { IPagination } from '../shared/models/pagination';
 import { IBrand } from '../shared/models/brand';
-import { IType } from '../shared/models/productType';
-import {map, delay} from 'rxjs/operators';
+import { ITypes } from '../shared/models/productType';
+import {map} from 'rxjs/operators';
 import { ShopParams } from '../shared/models/shopParams';
 import { IProduct } from '../shared/models/product';
 @Injectable({
@@ -49,7 +49,7 @@ baseUrl = 'https://localhost:5001/api/';
   }
 
  getTypes() {
-    return this.http.get<IType[]>(this.baseUrl + 'product/types');
+    return this.http.get<ITypes[]>(this.baseUrl + 'product/types');
 }
 
 }

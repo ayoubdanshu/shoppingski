@@ -16,7 +16,7 @@ export class PagerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onPagerChanged(event: any){
+  onPagerChange(event: any){
     this.pageChanged.emit(event.page);
   }
 

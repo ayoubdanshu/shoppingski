@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ShopService } from './shop.service';
 import { IProduct } from '../shared/models/product';
 import { IBrand } from '../shared/models/brand';
-import { IType } from '../shared/models/productType';
+import { ITypes } from '../shared/models/productType';
 import { ShopParams } from '../shared/models/shopParams';
 
 @Component({
@@ -15,7 +15,7 @@ export class ShopComponent implements OnInit {
 @ViewChild('search', {static: false }) searchTerm: ElementRef;
 products: IProduct[];
 brands: IBrand[];
-types: IType[];
+types: ITypes[];
 shopParams = new ShopParams();
 totalCount: number;
 sortOptions = [
@@ -27,7 +27,7 @@ sortOptions = [
 
   constructor(private shopService: ShopService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getProducts();
     this.getBrands();
     this.getTypes();
@@ -60,7 +60,7 @@ sortOptions = [
     });
   }
 
-  onbrandSelected(brandId: number){
+  onBrandSelected(brandId: number){
   this.shopParams.brandId = brandId;
   this.shopParams.pageNumber = 1;
   this.getProducts();
